@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/static/styles/css/font_google.css">
+    <title>Student Manager</title>
+</head>
+<body>
+
+    <div id="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/logout">Logout</a></li>
+            <li><a href="/teacher-selects-student">Interact</a></li>
+        </ul>
+    </div>
+
+    <div class="w3-container">
+        <h2>Student Name: {{ student_name }}</h2>
+        <h3>Marks:</h3>
+        <form method="post">
+            <table class="w3-table-all w3-card-4">
+                <tr>
+                    <th>Course Name</th>
+                    <th>CIA-1(10 marks)</th>
+                    <th>CIA-2(10 marks)</th>
+                    <th>CIA-3(10 marks)</th>
+                    <th>Assignment(10 marks)</th>
+                    <th>AAT(10 marks)</th>
+                    <th>SEE(50 marks)</th>
+                </tr>
+
+                <tbody>
+                    {% for (subj_name, cia1, cia2, cia3, assignment, aat, see) in current_marks %}
+                        <tr>
+                            <td>{{ subj_name }}</td>
+                            <td><input type="text" name="cia1" value="{{ cia1 }}" /></td>
+                            <td><input type="text" name="cia2" value="{{ cia2 }}" /></td>
+                            <td><input type="text" name="cia3" value="{{ cia3 }}" /></td>
+                            <td><input type="text" name="assignment" value="{{ assignment }}" /></td>
+                            <td><input type="text" name="aat" value="{{ aat }}" /></td>
+                            <td><input type="text" name="see" value="{{ see }}" /></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <h3>Attendance:</h3>
+            <table class="w3-table-all w3-card-4">
+                <tr>
+                    <th>Course Name</th>
+                    <th>Attendance</th>
+                </tr>
+
+                <tbody>
+                    {% for (subj_name, attendance) in current_attendances %}
+                        <tr>
+                            <td>{{ subj_name }}</td>
+                            <td><input type="text" name="attendance" value="{{ attendance }}" /></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <br>
+            <input class="submit-button" type="submit" value="Save and close">
+            <input type="hidden" name="selected-student" value="{{ selected_student_usn }}" />
+            <br>
+            <br>
+        </form>
+    </div>
+</body>
+<script>
+    function updateInput(td) {
+        console.log(td.firstChild)
+        let lastChild = td.lastChild;
+        td.firstChild['value'] = lastChild.textContent
+    }
+</script>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        color:#333030;
+        font-family: "Open Sans", Helvetica, sans-serif;
+        box-sizing: border-box;
+    }
+
+    input {
+        width: 100%;
+        height: 100%;
+    }
+
+    #navbar ul {
+        margin: 0;
+        padding: 15px;
+        list-style-type: none;
+        text-align: center;
+        background-color: #000;
+    }
+
+    #navbar ul li {
+        display: inline;
+    }
+
+    #navbar ul li a {
+        text-decoration: none;
+        padding: .2em 1em;
+        color: #fff;
+        background-color: #000;
+        font-size: 20px;
+    }
+
+    #navbar ul li a:hover {
+        color: #000;
+        background-color: #fff;
+    }
+
+    @media only screen and (min-width: 65.625em) {
+
+        .w3-container {
+            padding:0.01em 16px;
+            width:70%;
+            margin: auto;
+        }
+
+        .w3-container:after,.w3-container:before {
+            content:"";display:table;clear:both
+        }
+
+        .w3-table-all{
+            border-collapse:collapse;
+            border-spacing:0;
+            width:100%;
+            display:table;
+            border:1px solid #ccc
+        }
+
+        .w3-table-all tr {
+            border-bottom:1px solid #ddd
+        }
+
+        .w3-table-all tr:nth-child(odd) {
+            background-color:#fff
+        }
+
+        .w3-table-all tr:nth-child(even) {
+            background-color:#f1f1f1
+        }
+
+        .w3-table-all td,.w3-table-all th {
+            padding:5px 8px;
+            display:table-cell;
+            text-align:left;
+            vertical-align:top
+        }
+
+        .w3-table-all th:first-child,.w3-table-all td:first-child {
+            padding-left:16px
+        }
+
+        .w3-card-4{
+            box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)
+        }
+    }
+
+    .submit-button {
+        background: gray;
+        color: #fff;
+        display: block;
+        margin: auto;
+        border: 1px solid #eee;
+        border-radius: 2px;
+        box-shadow: 5px 5px 5px #eee;
+        text-shadow:none;
+        padding: 10px;
+        font-size: 20px;
+    }
+
+    .submit-button:hover {
+        background: darkgray;
+        color: #fff;
+        border: 1px solid #eee;
+        border-radius: 2px;
+        box-shadow: 5px 5px 5px #eee;
+        text-shadow:none;
+    }
+</style>
+</html>

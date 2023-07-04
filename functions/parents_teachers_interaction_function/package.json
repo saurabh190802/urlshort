@@ -1,0 +1,9 @@
+{
+	"name": "parents_teachers_interaction_function",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "20euit092@skcet.ac.in",
+	"dependencies": {
+		"zcatalyst-sdk-node": "latest"
+	}
+}

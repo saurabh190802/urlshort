@@ -1,0 +1,12 @@
+{
+  "functions": {
+    "targets": [
+      "parents_teachers_interaction_function"
+    ],
+    "ignore": [],
+    "source": "functions"
+  },
+  "client": {
+    "source": "client"
+  }
+}
