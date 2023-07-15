@@ -1,2 +1,8 @@
-# PARENTS-TEACHERS-INTERACTION-WEBAPP-ZOHO-CATALYST
-Schools and parent communication have reached a crossroad in recent years, so we have decided to build a web application which can help and improve the communication between parents and teachers. Where Teachers can post the information regarding the ward, so that parents can see that. Parent -Teacher communication apps emerged as the remediable factor to this myriad of problems, helping teachers communicate with parents effectively and seamlessly. Adopting a parent-friendly app that creates engagement and transparency is a must for all educators.
+# cat.ly - URL Shortener - NodeJS
+
+A simple URL shortener service, Cat.ly, that reduces the length of URLs to make them more convenient to share and access. Cat.ly is built as a single-page React application using Catalyst as a serverless platform. 
+
+Follow the detailed tutorial in the below link
+
+https://www.zoho.com/catalyst/help/tutorials/catly/introduction.html
+
